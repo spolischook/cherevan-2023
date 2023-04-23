@@ -1,19 +1,23 @@
-<nav class="overflow-x-scroll overflow-x-visible-ns flex justify-between items-center center bg-white divider-grey relative">
+{{ $link := trim .Page.RelPermalink "/" }}
+<div class="container">
+	<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+			<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+			<span class="fs-4">Tetiana Cherevan</span>
+		</a>
 
-	<!-- Logo -->
-	<a href="/" class="pa3 db mr4 h-100 w3 flex-none">
-		<img src="/img/logo.svg" alt="Kaldi logo" class="br0 db mb0 w-100"/>
-	</a>
+		<ul class="nav nav-pills">
 
-	<!-- Primary Nav -->
-	<ul class="flex b grey-3">
-		<li><a href="/products" class="pa3 no-underline db">Products</a></li>
-
-		<li><a href="/values" class="pa3 no-underline db">Values</a></li>
-
-		<li><a href="/post" class="pa3 no-underline db">Blog</a></li>
-
-		<li><a href="/contact" class="pa3 no-underline db">Contact</a></li>
-	</ul>
-
-</nav>
+			{{ $active := false }}{{ if eq $link "" }}{{ $active = true }}{{ end }}
+			<li class="nav-item"><a href="/" class="nav-link {{ if $active }}active{{ end }}" aria-current="page">Home</a></li>
+			{{ $active = (hasPrefix $link "products") }}
+			<li class="nav-item"><a href="/products" class="nav-link {{ if $active }}active{{ end }}">Products</a></li>
+			{{ $active = (hasPrefix $link "values") }}
+			<li class="nav-item"><a href="/values" class="nav-link {{ if $active }}active{{ end }}">Values</a></li>
+			{{ $active = (hasPrefix $link "post") }}
+			<li class="nav-item"><a href="/post" class="nav-link {{ if $active }}active{{ end }}">Blog</a></li>
+			{{ $active = (hasPrefix $link "contact") }}
+			<li class="nav-item"><a href="/contact" class="nav-link {{ if $active }}active{{ end }}">Contact</a></li>
+		</ul>
+	</header>
+</div>
