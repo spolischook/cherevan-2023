@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  repo: spolischook/cherevan-2023
   branch: bootstrap
 
 media_folder: "site/static/img" # Folder where user uploaded files should go
