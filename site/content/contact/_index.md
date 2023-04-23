@@ -1,6 +1,6 @@
 ---
 title: Tetiana Cherevan
-logo: /img/logo.svg
+logo: img/tetiana_cherevan_ava.jpeg
 contact_entries:
   - heading: Location
     text: 3153 Lynn Avenue, South San Francisco, California 94080
